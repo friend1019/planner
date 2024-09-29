@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스터디 플래너</title>
+    
+    <link rel="stylesheet" href="css.css"> <!-- CSS 파일 링크 -->
+
+    <style>
+        nav {
+            background-color: #b86df5; 
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e0e0e0; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+
+        nav .title {
+            font-size: 30px;
+            font-weight: bold;
+            color: #350f8d; 
+            transition: transform 0.3s; 
+        }
+
+        nav .title:hover {
+            transform: scale(1.1); 
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; 
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fdfdfd; 
+            font-size: 16px;
+            padding: 5px 10px; 
+            border-radius: 100px; 
+            transition: background-color 0.3s, color 0.5s; 
+        }
+
+        nav ul li a:hover {
+            background-color: #cba2f1; 
+            color: #fff; 
+        }
+
+
+        nav ul li a.active {
+            background-color: #6a4dd2; 
+            color: #fff; 
+        }
+
+        section {
+            font-size: 30px;
+            text-align: center;
+            margin: 30px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        input {
+            width: 100%; 
+            max-width: 350px; 
+            padding: 12px; 
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #e0e0e0; 
+            border-radius: 4px;
+            font-size: 14px; 
+        }
+
+        input::placeholder { 
+            color: #aaa; 
+            font-size: 12px; 
+        }
+
+        button {
+            background-color: #b86df5;
+            color: white;
+            padding: 12px; 
+            border: none;
+            cursor: pointer;
+            border-radius: 4px; 
+            width: 100%; 
+            max-width: 350px; 
+            font-size: 16px; 
+            margin-top: 10px; 
+        }
+
+        button:hover {
+            background-color: #9a5ad4; 
+        }
+
+        .hidden {
+            display: none; 
+        }
+
+        /* 로그인 하단 링크 스타일 */
+        .login-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .login-links a {
+            text-decoration: none;
+            color: #007bff; 
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline; 
+        }
+
+        footer {
+            background-color: #ffffff;
+            text-align: left;
+            padding: 20px; 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="title">
+            <a href="#" onclick="showMain()" style="text-decoration: none; color: #6a4dd2;">Plan</a> 
+        </div>
+        <ul>
+            <li><a href="#">시간표 작성</a></li>
+            <li><a href="#">시간표 관리</a></li>
+            <li><a href="#" onclick="showLogin()">로그인</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 초기화면 -->
+    <section id="mainSection">
+        <h1>Study Planner</h1>
+    </section>
+
+    <!-- 로그인 -->
+    <section id="login" class="hidden">
+        <h1>Plan</h1>
+        <form id="loginForm">
+            <input type="email" id="loginMail" name="loginMail" placeholder="아이디 또는 이메일" required><br>
+            <input type="password" id="loginPw" name="loginPw" placeholder="비밀번호" required><br>
+           
+            <button type="button" onclick="showMain()">로그인</button>
+        </form>
+
+        <!-- 로그인 하단 링크 -->
+        <div class="login-links">
+            <a href="#">ID/PW 찾기</a> | <a href="#">회원가입</a>
+        </div>
+    </section>
+
+    <script>
+        // 화면 전환 기능
+        function showLogin() {
+            document.getElementById('mainSection').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+        }
+
+        function showMain() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('mainSection').classList.remove('hidden');
+        }
+    </script>
+
+    <footer>
+        <p>© 2024 스터디 플래너 Plan</p>
+        <p> 연락처: 010-7597-7274<br>
+            이메일: jjm0203311@naver.com
+        </p>
+        <ul>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">문의하기</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
